@@ -1,13 +1,14 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
-import ApiPixabay from './js/Pixabay';
-import renderGallery from './js/markup';
+import ApiPixabay from './js/ApiPixabay';
+import renderGallery from './js/renderGallery';
 
 
 const searchForm = document.querySelector('#search-form');
 const galleryContainer = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
+//const loader = document.querySelector('.loader');
 
 const apiPixabay = new ApiPixabay();
 const lightbox = new SimpleLightbox('.gallery a');
@@ -21,7 +22,7 @@ loadMoreBtn.addEventListener('click', fetchImages);
 function onSearch(e) {
    e.preventDefault();
 
-   apiPixabay.searchQuery = e.currentTarget.value.trim();
+   apiPixabay.searchQuery = e.currentTarget.elements.searchQuery.value.trim();
 
    if (apiPixabay.searchQuery === '') {
       return Notify.info(`Please, enter what you want to search`);
