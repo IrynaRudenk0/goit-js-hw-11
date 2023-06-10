@@ -8,7 +8,7 @@ import renderGallery from './js/renderGallery';
 const searchForm = document.querySelector('#search-form');
 const galleryContainer = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
-//const loader = document.querySelector('.loader');
+const submitBtn = document.querySelector('.submit-button');
 
 const apiPixabay = new ApiPixabay();
 const lightbox = new SimpleLightbox('.gallery a');
